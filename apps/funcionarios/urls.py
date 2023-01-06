@@ -14,7 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-from .views import FuncionariosList, FuncionarioEdit, FuncionarioDelete
+from .views import (
+    FuncionariosList, 
+    FuncionarioEdit, 
+    FuncionarioDelete,
+    FuncionarioNovo
+)
 
 urlpatterns = [
     path(
@@ -32,5 +37,10 @@ urlpatterns = [
         'deletar/<int:pk>/', 
         FuncionarioDelete.as_view(), 
         name='delete_funcionario'
+    ),
+    path(
+        'novo/',
+        FuncionarioNovo.as_view(),
+        name='create_funcionario'
     ),
 ]
